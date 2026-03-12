@@ -3,8 +3,8 @@ FROM python:3.10-slim as builder
 
 WORKDIR /app
 
-COPY /preparation .
-COPY pyproject.toml .
+COPY . .
+
 RUN python -m pip install build
 
 #Creation of the binary
