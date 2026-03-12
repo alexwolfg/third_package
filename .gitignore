@@ -3,3 +3,4 @@ build/
 *.whl
 *.egg-info/
 *.log
+.dockerignore
