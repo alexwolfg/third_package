@@ -1,10 +1,20 @@
 import argparse
 import random
+import logging
 def main() -> None:
     """
     Module to get some args. as input and say whether the code can be release to production
     """
+    logger = logging.getLogger("Preparation")
 
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
+        handlers=[
+            logging.FileHandler("prep.log"),
+            logging.StreamHandler()
+        ]
+    )
     parser = argparse.ArgumentParser()
 
 
@@ -14,13 +24,15 @@ def main() -> None:
     parser.add_argument("-n1", type=int, help="First number to multiply from")
     
     args = parser.parse_args()
+    logging.info("Parameters loaded")
 
     name_len = len(args.word)
-
+    logging.debug("Starting handling")
     for i in range(name_len):
         print(i*args.n1-random.randrange(name_len))
 
     print("++++Process has finished++++++")
+    logging.info("++++Process has finished++++++")
 
 
 if __name__=="__main__":
