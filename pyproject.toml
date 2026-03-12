@@ -2,12 +2,12 @@
 name = "InterviewPrep"
 version = "1.0"
 description = "Preparation for interview"
-dependencies = python >= 3.10
+dependencies = "python >= 3.10"
 
 [project.scripts]
 prep=preparation.preparation:main
 
 
 [build-system]
-requires = [setuptools]
-build-backend = setuptools.build
+requires = ["setuptools"]
+build-backend = "setuptools.build"
